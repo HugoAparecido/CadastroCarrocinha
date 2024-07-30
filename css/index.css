@@ -1,0 +1,7 @@
+div.principal > div {
+  height: 300px;
+  width: 200px;
+  background: var(--verde);
+  padding: 5px;
+  border-radius: 20px;
+}

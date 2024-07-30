@@ -1,0 +1,37 @@
+:root {
+  --verde-escuro: #182625;
+  --verde: #28403d;
+  --cinza: #455559;
+  --cinza-escuro: #2f3d40;
+  --azul: #3d5a73;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+table td {
+  border: 2px solid black;
+}
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.principal{
+    justify-content: unset;
+}
+th{
+    background-color: var(--azul);
+    color: white;
+    padding: 5px;
+}
+tr, tr a{
+    background-color: var(--verde);
+    color: black;
+}
+tr:nth-child(even), tr:nth-child(even) a{
+    background-color: var(--verde-escuro);
+    color: white;
+  }
+td {
+    padding: 5px;
+    text-align: center;
+}
