@@ -11,34 +11,38 @@
 
 <body>
     <div class="principal flex inverter_column">
-        <form action="./CadastroClienteExe.php" method="post">
+        <form action="./CadastroAnimalExe.php" method="post">
             <fieldset>
-                <legend>Cadastro de Clientes</legend>
+                <legend>Cadastro de Animal</legend>
                 <div>
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" />
                 </div>
                 <div>
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email" />
+                    <label for="especie">Espécie</label>
+                    <input type="text" name="especie" id="especie" />
                 </div>
                 <div>
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha" />
+                    <label for="raca">Raça</label>
+                    <input type="text" name="raca" id="raca" />
                 </div>
                 <div>
-                    <label>Ativo:</label>
-                    <input type="radio" name="ativo" id="AtivoSim" value="sim" /><label id="AtivoSim">Sim</label>
-                    <input type="radio" name="ativo" id="AtivoNao" value="nao" /><label id="AtivoNao">Não</label>
+                    <label for="data_nascimento">Data de Nascimento ou Adoção</label>
+                    <input type="date" name="data_nascimento" id="data_nascimento" />
                 </div>
-                <div><label for="cidade">Cidade</label>
-                    <select name="cidade" id="cidade">
+                <div>
+                    <label>Cadastrado:</label>
+                    <input type="radio" name="castrado" id="castradoSim" value="sim" /><label id="castradoSim">Sim</label>
+                    <input type="radio" name="castrado" id="castradoNao" value="nao" /><label id="castradoNao">Não</label>
+                </div>
+                <div><label for="pessoa">Pessoa</label>
+                    <select name="pessoa" id="pessoa">
                         <?php
                         include('../includes/conexao.php');
-                        $sql = "SELECT * FROM cidade";
+                        $sql = "SELECT * FROM pessoa";
                         $result = mysqli_query($con, $sql);
                         while ($row = mysqli_fetch_array($result)) {
-                            echo "<option value='" . $row['id'] . "'>" . $row['nome'] . "/" . $row['estado'] . "</option>";
+                            echo "<option value='" . $row['id'] . "'>" . $row['nome'] . "/" . $row['email'] . "</option>";
                         }
                         ?>
                     </select>
