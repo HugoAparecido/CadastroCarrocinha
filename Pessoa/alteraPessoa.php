@@ -20,23 +20,26 @@ $rowPessoa = mysqli_fetch_array($result);
   <div class="principal flex inverter_column">
     <form action="./AlteraPessoaExe.php" method="post">
       <fieldset>
-        <legend>Alteração de Pessoa</legend>
+        <legend>Cadastro de Pessoa</legend>
         <div>
           <label for="nome">Nome</label>
-          <input type="text" name="nome" id="nome" value="<?php echo $rowPessoa['nome'] ?>" />
+          <input type="text" name="nome" id="nome" value="<?= $rowPessoa['nome'] ?>" />
         </div>
         <div>
           <label for="email">E-mail</label>
-          <input type="email" name="email" id="email" value="<?php echo $rowPessoa['email'] ?>" />
+          <input type="email" name="email" id="email" value="<?= $rowPessoa['email'] ?>" />
         </div>
         <div>
-          <label for="senha">Senha</label>
-          <input type="password" name="senha" id="senha" value="<?php echo $rowPessoa['senha'] ?>" />
+          <label for="endereco">Endereco</label>
+          <input type="text" name="endereco" id="endereco" value="<?= $rowPessoa['endereco'] ?>" />
         </div>
         <div>
-          <label>Ativo:</label>
-          <input type="radio" name="ativo" id="AtivoSim" value="sim" <?php echo $rowPessoa['ativo'] == 0 ? "checked" : "" ?> /><label id="AtivoSim">Sim</label>
-          <input type="radio" name="ativo" id="AtivoNao" value="nao" <?php echo $rowPessoa['ativo'] == 1 ? "checked" : "" ?> /><label id="AtivoNao">Não</label>
+          <label for="bairro">Bairro</label>
+          <input type="text" name="bairro" id="bairro" value="<?= $rowPessoa['bairro'] ?>" />
+        </div>
+        <div>
+          <label for="cep">CEP</label>
+          <input type="text" name="cep" id="cep" value="<?= $rowPessoa['cep'] ?>" />
         </div>
         <input type="hidden" name='id' value='<?php echo $rowPessoa['id'] ?>'>
         <div><label for="cidade">Cidade</label>
@@ -51,7 +54,7 @@ $rowPessoa = mysqli_fetch_array($result);
           </select>
         </div>
         <div>
-          <button class="botao_submit" type="submit">Alterar</button>
+          <button class="botao_submit" type="submit">Cadastrar</button>
         </div>
       </fieldset>
     </form>

@@ -24,7 +24,7 @@ CREATE TABLE pessoa
     nome        VARCHAR(100),
     email       VARCHAR(100),
     endereco    VARCHAR(100),
-    bairro      BOOL,
+    bairro      VARCHAR(100),
     id_cidade   INT,
     cep         CHAR(9),
     PRIMARY KEY(id),

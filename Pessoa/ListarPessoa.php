@@ -15,7 +15,7 @@
         <button class="botao"><a href="../index.html">Voltar</a></button>
         <?php
         include('../includes/conexao.php');
-        $sql = "SELECT cli.id, cli.nome nomecliente, cli.email, cli.ativo, cid.nome nomecidade, cid.estado FROM cliente cli LeFT JOIN cidade cid ON cid.id = cli.id_cidade";
+        $sql = "SELECT pes.id, pes.nome nomepessoa, pes.email, pes.endereco, pes.bairro, pes.cep, cid.nome nomecidade, cid.estado FROM pessoa pes LEFT JOIN cidade cid ON cid.id = pes.id_cidade";
         // Executa a consulta
         $result = mysqli_query($con, $sql);
         ?>
@@ -25,7 +25,9 @@
                 <th>Código</th>
                 <th>Nome</th>
                 <th>E-mail</th>
-                <th>Ativo</th>
+                <th>Endereço</th>
+                <th>Bairro</th>
+                <th>Cep</th>
                 <th>Cidade</th>
                 <th>Estado</th>
                 <th>Alterar</th>
@@ -33,16 +35,17 @@
             </tr>
             <?php
             while ($row = mysqli_fetch_array($result)) {
-                $ativo = $row['ativo'] == 0 ? "Sim" : "Não";
                 echo "<tr>";
                 echo "<td>" . $row['id'] . "</td>";
-                echo "<td>" . $row['nomecliente'] . "</td>";
+                echo "<td>" . $row['nomepessoa'] . "</td>";
                 echo "<td>" . $row['email'] . "</td>";
-                echo "<td>" . $ativo . "</td>";
+                echo "<td>" . $row['endereco'] . "</td>";
+                echo "<td>" . $row['bairro'] . "</td>";
+                echo "<td>" . $row['cep'] . "</td>";
                 echo "<td>" . $row['nomecidade'] . "</td>";
                 echo "<td>" . $row['estado'] . "</td>";
-                echo "<td><a href='alteraCliente.php?id=" . $row['id'] . "'>Alterar</a></td>";
-                echo "<td><a href='deletaCliente.php?id=" . $row['id'] . "'>Deletar</a></td>";
+                echo "<td><a href='alteraPessoa.php?id=" . $row['id'] . "'>Alterar</a></td>";
+                echo "<td><a href='deletaPessoa.php?id=" . $row['id'] . "'>Deletar</a></td>";
                 echo "</tr>";
             }
             ?>

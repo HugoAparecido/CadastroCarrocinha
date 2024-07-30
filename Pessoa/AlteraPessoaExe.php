@@ -2,10 +2,11 @@
 include('../includes/conexao.php');
 $id = $_POST['id'];
 $nome = $_POST['nome'];
-$senha = $_POST['senha'];
 $email = $_POST['email'];
-$ativo = $_POST['ativo'] == "sim" ? true : false;
 $cidade = $_POST['cidade'];
+$endereco = $_POST['endereco'];
+$bairro = $_POST['bairro'];
+$cep = $_POST['cep'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,19 +22,19 @@ $cidade = $_POST['cidade'];
     <h1>Alteração de cliente</h1>
     <?php
     echo "<p>Id: $id</p>";
-    echo "<p>Nome: $nome</p>";
-    echo "<p>E-mail: $email</p>";
-    echo "<p>Senha: $senha</p>";
-    echo "<p>Ativo: " . $ativo ? "Sim" : "Não" . "</p>";
-    $ativo = $ativo ? 0 : 1;
-    $sql = "UPDATE cliente SET nome = '$nome', email = '$email', senha = '$senha', ativo = $ativo, id_cidade = $cidade WHERE id = $id";
+    echo "Nome: $nome</br>";
+    echo "E-mail: $email</br>";
+    echo "Endereço: $endereco</br>";
+    echo "Bairro: $bairro</br>";
+    echo "CEP: $cep</br></br>";
+    $sql = "UPDATE pessoa SET nome = '$nome', email = '$email', endereco = '$endereco', bairro = '$bairro', bairro = '$cep', id_cidade = $cidade WHERE id = $id";
     $result = mysqli_query($con, $sql);
     if ($result)
         echo "Dados atualizados!";
     else
         echo "Erro ao atualizar dados!\n" . mysqli_error($con);
     ?>
-    <button class="botao"><a href="./ListarCliente.php">Voltar</a></button>
+    <button class="botao"><a href="./ListarPessoa.php">Voltar</a></button>
 </body>
 
 </html>
