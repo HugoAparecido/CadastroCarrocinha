@@ -1,9 +1,9 @@
 <?php
 include('../includes/conexao.php');
 $id = $_GET['id'];
-$sql = "SELECT * FROM cliente WHERE id=$id";
+$sql = "SELECT * FROM pessoa WHERE id=$id";
 $result = mysqli_query($con, $sql);
-$rowCliente = mysqli_fetch_array($result);
+$rowPessoa = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,34 +18,34 @@ $rowCliente = mysqli_fetch_array($result);
 
 <body>
   <div class="principal flex inverter_column">
-    <form action="./AlteraClienteExe.php" method="post">
+    <form action="./AlteraPessoaExe.php" method="post">
       <fieldset>
-        <legend>Alteração de cliente</legend>
+        <legend>Alteração de Pessoa</legend>
         <div>
           <label for="nome">Nome</label>
-          <input type="text" name="nome" id="nome" value="<?php echo $rowCliente['nome'] ?>" />
+          <input type="text" name="nome" id="nome" value="<?php echo $rowPessoa['nome'] ?>" />
         </div>
         <div>
           <label for="email">E-mail</label>
-          <input type="email" name="email" id="email" value="<?php echo $rowCliente['email'] ?>" />
+          <input type="email" name="email" id="email" value="<?php echo $rowPessoa['email'] ?>" />
         </div>
         <div>
           <label for="senha">Senha</label>
-          <input type="password" name="senha" id="senha" value="<?php echo $rowCliente['senha'] ?>" />
+          <input type="password" name="senha" id="senha" value="<?php echo $rowPessoa['senha'] ?>" />
         </div>
         <div>
           <label>Ativo:</label>
-          <input type="radio" name="ativo" id="AtivoSim" value="sim" <?php echo $rowCliente['ativo'] == 0 ? "checked" : "" ?> /><label id="AtivoSim">Sim</label>
-          <input type="radio" name="ativo" id="AtivoNao" value="nao" <?php echo $rowCliente['ativo'] == 1 ? "checked" : "" ?> /><label id="AtivoNao">Não</label>
+          <input type="radio" name="ativo" id="AtivoSim" value="sim" <?php echo $rowPessoa['ativo'] == 0 ? "checked" : "" ?> /><label id="AtivoSim">Sim</label>
+          <input type="radio" name="ativo" id="AtivoNao" value="nao" <?php echo $rowPessoa['ativo'] == 1 ? "checked" : "" ?> /><label id="AtivoNao">Não</label>
         </div>
-        <input type="hidden" name='id' value='<?php echo $rowCliente['id'] ?>'>
+        <input type="hidden" name='id' value='<?php echo $rowPessoa['id'] ?>'>
         <div><label for="cidade">Cidade</label>
           <select name="cidade" id="cidade">
             <?php
             $sql = "SELECT * FROM cidade";
             $result = mysqli_query($con, $sql);
             while ($rowCidade = mysqli_fetch_array($result)) {
-              echo "<option value='" . $rowCidade['id'] . "' " . ($rowCidade['id'] == $rowCliente['id_cidade'] ? "selected" : "") . ">" . $rowCidade['nome'] . "/" . $rowCidade['estado'] . "</option>";
+              echo "<option value='" . $rowCidade['id'] . "' " . ($rowCidade['id'] == $rowPessoa['id_cidade'] ? "selected" : "") . ">" . $rowCidade['nome'] . "/" . $rowCidade['estado'] . "</option>";
             }
             ?>
           </select>

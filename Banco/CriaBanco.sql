@@ -26,7 +26,7 @@ CREATE TABLE pessoa
     endereco    VARCHAR(100),
     bairro      BOOL,
     id_cidade   INT,
-    cep         INT,
+    cep         CHAR(9),
     PRIMARY KEY(id),
     CONSTRAINT FK_PessoaCidade FOREIGN KEY (id_cidade) REFERENCES cidade(id)
 );

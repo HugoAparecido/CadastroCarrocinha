@@ -13,19 +13,21 @@
     <?php
     include('../includes/conexao.php');
     $nome = $_POST['nome'];
-    $senha = $_POST['senha'];
     $email = $_POST['email'];
-    $ativo = $_POST['ativo'] == "sim" ? true : false;
     $cidade = $_POST['cidade'];
+    $endereco = $_POST['endereco'];
+    $bairro = $_POST['bairro'];
+    $cep = $_POST['cep'];
     echo "<h1>Dados do Cliente</h1>";
     echo "Nome: $nome</br>";
     echo "E-mail: $email</br>";
-    echo "Ativo: " . $ativo ? "Sim" : "Não" . "</br></br>";
-    // INSERT INTO cliente (nome, email, senha, ativo)
-    // VALUES ('$nome', '$estado', '$senha', $ativo == "sim" ? 0 : 1)
-    $sql = "INSERT INTO cliente (nome, email, senha, ativo, id_cidade)";
-    $ativo = $ativo ? 0 : 1;
-    $sql .= " VALUES('" . $nome . "', '" . $email . "', '" . $senha . "', ".$ativo.",".$cidade.")";
+    echo "Endereço: $endereco</br>";
+    echo "Bairro: $bairro</br>";
+    echo "CEP: $cep</br></br>";
+    // INSERT INTO cliente (nome, email, endereco, bairro, cep, id_cidade)
+    // VALUES ('$nome', '$email', '$endereco', '$bairro', '$cep', $cidade)
+    $sql = "INSERT INTO pessoa (nome, email, endereco, bairro, cep, id_cidade)";
+    $sql .= " VALUES('" . $nome . "', '" . $email . "', '" . $endereco . "', '" . $bairro . "', '" . $cep . "'," . $cidade . ")";
     echo $sql;
     // Executa comando no banco de dados
     $result =  mysqli_query($con, $sql);
