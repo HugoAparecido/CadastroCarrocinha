@@ -32,7 +32,7 @@ CREATE TABLE pessoa
 );
 
 -- Cria tabela animal
-CREATE TABLE cliente
+CREATE TABLE animal
 (
     id          INT AUTO_INCREMENT,
     nome        VARCHAR(100),
@@ -40,7 +40,7 @@ CREATE TABLE cliente
     raca        VARCHAR(100),
     data_nascimento     DATE,
     idade       INT,
-    casatrado   BOOL,
+    castrado   BOOL,
     id_pessoa   INT,
     PRIMARY KEY(id),
     CONSTRAINT FK_AnimalPessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id)
