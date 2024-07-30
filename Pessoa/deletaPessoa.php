@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <h1>Deletar Cliente</h1>
+    <h1>Deletar Pessoa</h1>
     <?php
     include('../includes/conexao.php');
     $id = $_GET['id'];
-    $sql = "DELETE FROM cliente WHERE id = $id";
+    $sql = "DELETE FROM pessoa WHERE id = $id";
     $result = mysqli_query($con, $sql);
     if ($result)
         echo "<h2>Dados deletados!</h2>";
@@ -22,7 +22,7 @@
         echo "<h2>" . mysqli_error($con) . "</h2>";
     }
     ?>
-    <button class="botao"><a href="./ListarCliente.php">Voltar</a></button>
+    <button class="botao"><a href="./ListarPessoa.php">Voltar</a></button>
 </body>
 
 </html>
