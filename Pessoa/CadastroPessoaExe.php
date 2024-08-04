@@ -27,7 +27,7 @@
     // INSERT INTO cliente (nome, email, endereco, bairro, cep, id_cidade)
     // VALUES ('$nome', '$email', '$endereco', '$bairro', '$cep', $cidade)
     $sql = "INSERT INTO pessoa (nome, email, endereco, bairro, cep, id_cidade)";
-    $sql .= " VALUES('" . $nome . "', '" . $email . "', '" . $endereco . "', '" . $bairro . "', '" . $cep . "'," . $cidade . ")";
+    $sql .= " VALUES('" . $nome . "', '" . $email . "', '" . $endereco . "', '" . $bairro . "', '" . $cep . "', " . $cidade . ")";
     echo $sql;
     // Executa comando no banco de dados
     $result =  mysqli_query($con, $sql);
