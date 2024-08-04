@@ -27,7 +27,7 @@ $cep = $_POST['cep'];
     echo "Endereço: $endereco</br>";
     echo "Bairro: $bairro</br>";
     echo "CEP: $cep</br></br>";
-    $sql = "UPDATE pessoa SET nome = '$nome', email = '$email', endereco = '$endereco', bairro = '$bairro', bairro = '$cep', id_cidade = $cidade WHERE id = $id";
+    $sql = "UPDATE pessoa SET nome = '$nome', email = '$email', endereco = '$endereco', bairro = '$bairro', cep = '$cep', id_cidade = $cidade WHERE id = $id";
     $result = mysqli_query($con, $sql);
     if ($result)
         echo "Dados atualizados!";
