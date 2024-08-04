@@ -13,7 +13,7 @@
     <?php
     include('../includes/conexao.php');
     $id = $_GET['id'];
-    $sql = "DELETE FROM cidade WHERE id = $id";
+    $sql = "DELETE FROM animal WHERE id = $id";
     $result = mysqli_query($con, $sql);
     if ($result)
         echo "<h2>Dados deletados!</h2>";
@@ -22,7 +22,7 @@
         echo "<h2>" . mysqli_error($con) . "</h2>";
     }
     ?>
-    <button class="botao"><a href="./ListarCidade.php">Voltar</a></button>
+    <button class="botao"><a href="./ListarAnimal.php">Voltar</a></button>
 </body>
 
 </html>

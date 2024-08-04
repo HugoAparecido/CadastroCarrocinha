@@ -27,21 +27,22 @@
     // INSERT INTO cidade (nome, especie, raca, data_nascimento, castrado, id_pessoa, idade)
     // VALUES ('$nome', '$especie', '$raca', $pessoa, $castrado == "sim" ? 0 : 1, $idade)
     $castrado = $castrado ? 0 : 1;
-    $dataNascimentoOb = new DateTime($dataNascimento);
-    $dataNascimento = $dataNascimentoOb->format('Y-m-d');
+    $dataNascimentoFormatada = date('Y-m-d', strtotime($dataNascimento));
+    $dataAtual = new DateTime();
+    $dataNascimentoOb = new DateTime($dataNascimentoFormatada);
     $idadeOb = $dataNascimentoOb->diff(new DateTime(date('Y-m-d')));
     $idade = $idadeOb->format('%Y');
     $sql = "INSERT INTO animal (nome, especie, raca, data_nascimento, castrado, id_pessoa, idade)";
-    $sql .= " VALUES('" . $nome . "', '" . $especie . "', $dataNascimento, '" . $raca . "', $castrado, $pessoa, $idade)";
+    $sql .= " VALUES('" . $nome . "', '" . $especie . "', '" . $raca . "', '" . $dataNascimentoFormatada . "', $castrado, $pessoa, $idade)";
     echo $sql;
     // Executa comando no banco de dados
-    /*$result =  mysqli_query($con, $sql);
+    $result =  mysqli_query($con, $sql);
     if ($result) {
         echo "<h2>Dados cadastrados com sucesso!</h2>";
     } else {
         echo "<h2>Erro ao cadastrar!</h2>";
         echo mysqli_error($con);
-    }*/
+    }
     ?>
     <button class="botao"><a href="../index.html">Voltar à pagina inicial</a></button>
 </body>

@@ -15,27 +15,38 @@
         <button class="botao"><a href="../index.html">Voltar</a></button>
         <?php
         include('../includes/conexao.php');
-        $sql = "SELECT * FROM cidade";
+        $sql = "SELECT ani.id, ani.nome nomeAnimal, ani.especie, ani.raca, ani.data_nascimento, ani.idade, ani.castrado, don.nome nomeDono, don.email FROM animal ani LEFT JOIN pessoa don ON don.id = ani.id_pessoa";
         // Executa a consulta
         $result = mysqli_query($con, $sql);
         ?>
-        <h1>Consulta de Cidades</h1>
+        <h1>Consulta de Animais</h1>
         <table>
             <tr>
                 <th>Código</th>
                 <th>Nome</th>
-                <th>Estado</th>
+                <th>Espécie</th>
+                <th>Raça</th>
+                <th>Data de Nascimeto/Adoção</th>
+                <th>Idade</th>
+                <th>Castrado</th>
+                <th>Dono</th>
                 <th>Alterar</th>
                 <th>Deletar</th>
             </tr>
             <?php
             while ($row = mysqli_fetch_array($result)) {
+                $castrado = $row['castrado'] == 1 ? "Sim" : "Não";
                 echo "<tr>";
                 echo "<td>" . $row['id'] . "</td>";
-                echo "<td>" . $row['nome'] . "</td>";
-                echo "<td>" . $row['estado'] . "</td>";
-                echo "<td><a href='alteraCidade.php?id=" . $row['id'] . "'>Alterar</a></td>";
-                echo "<td><a href='deletaCidade.php?id=" . $row['id'] . "'>Deletar</a></td>";
+                echo "<td>" . $row['nomeAnimal'] . "</td>";
+                echo "<td>" . $row['especie'] . "</td>";
+                echo "<td>" . $row['raca'] . "</td>";
+                echo "<td>" . $row['data_nascimento'] . "</td>";
+                echo "<td>" . $row['idade'] . " anos </td>";
+                echo "<td>" . $castrado . "</td>";
+                echo "<td>" . $row['nomeDono'] . "/" . $row['email'] . "</td>";
+                echo "<td><a href='alteraAnimal.php?id=" . $row['id'] . "'>Alterar</a></td>";
+                echo "<td><a href='deletaAnimal.php?id=" . $row['id'] . "'>Deletar</a></td>";
                 echo "</tr>";
             }
             ?>

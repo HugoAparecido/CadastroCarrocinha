@@ -54,7 +54,7 @@ $rowPessoa = mysqli_fetch_array($result);
           </select>
         </div>
         <div>
-          <button class="botao_submit" type="submit">Cadastrar</button>
+          <button class="botao_submit" type="submit">Alterar</button>
         </div>
       </fieldset>
     </form>

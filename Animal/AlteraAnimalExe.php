@@ -2,7 +2,11 @@
 include('../includes/conexao.php');
 $id = $_POST['id'];
 $nome = $_POST['nome'];
-$estado = $_POST['estado'];
+$especie = $_POST['especie'];
+$raca = $_POST['raca'];
+$dataNascimento = $_POST['data_nascimento'];
+$castrado = $_POST['castrado'] == "sim" ? 1 : 0;
+$pessoa = $_POST['pessoa'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,17 +21,27 @@ $estado = $_POST['estado'];
 <body>
     <h1>Alteração de cidade</h1>
     <?php
-    echo "<p>Id: $id</p>";
+    $dataNascimentoFormatada = date('Y-m-d', strtotime($dataNascimento));
+    $dataAtual = new DateTime();
+    $dataNascimentoOb = new DateTime($dataNascimentoFormatada);
+    $idadeOb = $dataNascimentoOb->diff(new DateTime(date('Y-m-d')));
+    $idade = $idadeOb->format('%Y');
+    echo "<p>ID: $id</p>";
     echo "<p>Nome: $nome</p>";
-    echo "<p>Estado: $estado</p>";
-    $sql = "UPDATE cidade SET nome = '$nome', estado = '$estado' WHERE id = $id";
+    echo "<p>Espécie: $especie</p>";
+    echo "<p>Raça: $raca</p>";
+    echo "<p>Data Nascimento: $dataNascimento</p>";
+    echo "<p>Idade: $idade</p>";
+    echo "<p>castrado: $castrado</p>";
+    echo "<p>Id Pessoa: $pessoa";
+    $sql = "UPDATE animal SET nome = '$nome', especie = '$especie', raca = '$raca', data_nascimento = '$dataNascimentoFormatada', idade = $idade, castrado = $castrado, id_pessoa = $pessoa WHERE id = $id";
     $result = mysqli_query($con, $sql);
     if ($result)
         echo "Dados atualizados!";
     else
         echo "Erro ao atualizar dados!\n" . mysqli_error($con);
     ?>
-    <button class="botao"><a href="./ListarCidade.php">Voltar</a></button>
+    <button class="botao"><a href="./ListarAnimal.php">Voltar</a></button>
 </body>
 
 </html>
