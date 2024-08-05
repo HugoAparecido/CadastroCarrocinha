@@ -69,3 +69,8 @@ nav ul li:hover ul {
 nav ul li ul li a {
   padding: 10px;
 }
+
+.principal {
+  justify-content: unset;
+  margin-top: 100px;
+}

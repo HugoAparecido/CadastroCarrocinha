@@ -6,10 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Document</title>
+    <title>Resultado</title>
 </head>
 
 <body>
+    <div class="menu">
+        <a href="#" class="brand"><img src="../img/logo-gato.webp" alt=""></a>
+        <nav>
+            <ul>
+                <li><a href="#">Cidade</a>
+                    <ul>
+                        <li><a href="../Cidade/CadastroCidade.html">Cadastrar</a></li>
+                        <li><a href="../Cidade/ListarCidade.php">Visualizar</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Pessoa</a>
+                    <ul>
+                        <li>
+                            <a href="../Pessoa/CadastroPessoa.php">Cadastrar</a>
+                        </li>
+                        <li>
+                            <a href="../Pessoa/ListarPessoa.php">Visualizar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="">Animal</a>
+                    <ul>
+                        <li>
+                            <a href="../Animal/CadastroAnimal.php">Cadastrar</a>
+                        </li>
+                        <li>
+                            <a href="../Animal/ListarAnimal.php">Visualizar</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
     <?php
     include('../includes/conexao.php');
     $nome = $_POST['nome'];
