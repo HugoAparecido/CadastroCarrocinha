@@ -1,22 +1,63 @@
-:root {
-  --verde-escuro: #182625;
-  --verde: #28403d;
-  --cinza: #455559;
-  --cinza-escuro: #2f3d40;
-  --azul: #3d5a73;
+* {
+  /* Change your font family */
+  font-family: sans-serif;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-table td {
-  border: 2px solid black;
-}
-
-table {
-  border: 1px solid black;
+.content-table {
   border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table td {
+  text-align: center;
+}
+
+.content-table td a {
+  text-decoration: none;
+  color: #042940;
+  background: #009879;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.content-table td a:hover {
+  text-decoration: underline;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+  color: #f3f3f3;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+  color: black;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
 }
 
 .principal {
@@ -24,25 +65,9 @@ table {
   margin-top: 100px;
 }
 
-th {
-  background-color: var(--azul);
-  color: white;
-  padding: 5px;
-}
-
-tr,
-tr a {
-  background-color: var(--verde);
-  color: black;
-}
-
-tr:nth-child(even),
-tr:nth-child(even) a {
-  background-color: var(--verde-escuro);
-  color: white;
-}
-
-td {
-  padding: 5px;
-  text-align: center;
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

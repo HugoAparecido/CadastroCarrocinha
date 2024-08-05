@@ -53,36 +53,40 @@
             $result = mysqli_query($con, $sql);
             ?>
             <h1>Consulta de Animais</h1>
-            <table>
-                <tr>
-                    <th>Código</th>
-                    <th>Nome</th>
-                    <th>Espécie</th>
-                    <th>Raça</th>
-                    <th>Data de Nascimeto/Adoção</th>
-                    <th>Idade</th>
-                    <th>Castrado</th>
-                    <th>Dono</th>
-                    <th>Alterar</th>
-                    <th>Deletar</th>
-                </tr>
-                <?php
-                while ($row = mysqli_fetch_array($result)) {
-                    $castrado = $row['castrado'] == 1 ? "Sim" : "Não";
-                    echo "<tr>";
-                    echo "<td>" . $row['id'] . "</td>";
-                    echo "<td>" . $row['nomeAnimal'] . "</td>";
-                    echo "<td>" . $row['especie'] . "</td>";
-                    echo "<td>" . $row['raca'] . "</td>";
-                    echo "<td>" . $row['data_nascimento'] . "</td>";
-                    echo "<td>" . $row['idade'] . " anos </td>";
-                    echo "<td>" . $castrado . "</td>";
-                    echo "<td>" . $row['nomeDono'] . "/" . $row['email'] . "</td>";
-                    echo "<td><a href='alteraAnimal.php?id=" . $row['id'] . "'>Alterar</a></td>";
-                    echo "<td><a href='deletaAnimal.php?id=" . $row['id'] . "'>Deletar</a></td>";
-                    echo "</tr>";
-                }
-                ?>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Espécie</th>
+                        <th>Raça</th>
+                        <th>Data de Nascimeto/Adoção</th>
+                        <th>Idade</th>
+                        <th>Castrado</th>
+                        <th>Dono</th>
+                        <th>Alterar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    while ($row = mysqli_fetch_array($result)) {
+                        $castrado = $row['castrado'] == 1 ? "Sim" : "Não";
+                        echo "<tr>";
+                        echo "<td>" . $row['id'] . "</td>";
+                        echo "<td>" . $row['nomeAnimal'] . "</td>";
+                        echo "<td>" . $row['especie'] . "</td>";
+                        echo "<td>" . $row['raca'] . "</td>";
+                        echo "<td>" . $row['data_nascimento'] . "</td>";
+                        echo "<td>" . $row['idade'] . " anos </td>";
+                        echo "<td>" . $castrado . "</td>";
+                        echo "<td>" . $row['nomeDono'] . "/" . $row['email'] . "</td>";
+                        echo "<td><a href='alteraAnimal.php?id=" . $row['id'] . "'>Alterar</a></td>";
+                        echo "<td><a href='deletaAnimal.php?id=" . $row['id'] . "'>Deletar</a></td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </tbody>
             </table>
         </div>
     </section>
