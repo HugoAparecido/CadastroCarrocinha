@@ -13,6 +13,7 @@ $row = mysqli_fetch_array($result);
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/cadastro.css">
     <title>Alateração da Cidade</title>
 </head>
 
@@ -50,30 +51,21 @@ $row = mysqli_fetch_array($result);
             </ul>
         </nav>
     </div>
-    <div class="principal flex inverter_column">
-        <form action="AlteraCidadeExe.php" method="post">
-            <fieldset>
-                <legend>Cadastro de Cidades</legend>
-                <div>
-                    <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" value="<?php echo $row['nome'] ?>" />
-                </div>
-                <div>
-                    <label for="estado">Estado</label>
-                    <select name="estado" id="estado">
-                        <option value="SP" <?php echo $row['estado'] == "SP" ? "selected" : "" ?>>SP</option>
-                        <option value="RJ" <?php echo $row['estado'] == "RJ" ? "selected" : "" ?>>RJ</option>
-                        <option value="MG" <?php echo $row['estado'] == "MG" ? "selected" : "" ?>>MG</option>
-                    </select>
-                    <input type="hidden" name='id' value='<?php echo $row['id'] ?>'>
-                </div>
-                <div>
-                    <button class="botao_submit" type="submit">Alterar</button>
-                </div>
-            </fieldset>
-        </form>
-        <button class="botao"><a href="./ListarCidade.php">Voltar</a></button>
-    </div>
+    <section>
+        <div class="principal box-cidade">
+            <h2>Alterar Cidade</h2>
+            <form action="AlteraCidadeExe.php" method="post">
+                <input type="text" name="nome" class="box-inline" id="nome" value="<?php echo $row['nome'] ?>" placeholder="Novo nome?" />
+                <select name="estado" id="estado" class="box-inline">
+                    <option value="SP" <?php echo $row['estado'] == "SP" ? "selected" : "" ?>>SP</option>
+                    <option value="RJ" <?php echo $row['estado'] == "RJ" ? "selected" : "" ?>>RJ</option>
+                    <option value="MG" <?php echo $row['estado'] == "MG" ? "selected" : "" ?>>MG</option>
+                </select>
+                <input type="hidden" name='id' value='<?php echo $row['id'] ?>'>
+                <button type="submit">Alterar</button>
+            </form>
+        </div>
+    </section>
 </body>
 
 </html>
