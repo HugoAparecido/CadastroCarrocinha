@@ -1,20 +1,25 @@
-:root{
+:root {
     --verde-escuro: #182625;
     --verde: #28403D;
     --cinza: #455559;
     --cinza-escuro: #2F3D40;
     --azul: #3D5A73;
 }
-fieldset{
+
+fieldset {
     background-color: var(--azul);
     border-radius: 50px;
 }
-label{
+
+label {
     color: var(--verde-escuro);
-}legend {
+}
+
+legend {
     position: relative;
     top: -20px;
 }
+
 input {
     padding: 5px;
     padding-left: 9px;

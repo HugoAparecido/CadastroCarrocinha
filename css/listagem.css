@@ -5,33 +5,44 @@
   --cinza-escuro: #2f3d40;
   --azul: #3d5a73;
 }
-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 table td {
   border: 2px solid black;
 }
+
 table {
   border: 1px solid black;
   border-collapse: collapse;
 }
-.principal{
-    justify-content: unset;
+
+.principal {
+  justify-content: unset;
+  margin-top: 100px;
 }
-th{
-    background-color: var(--azul);
-    color: white;
-    padding: 5px;
+
+th {
+  background-color: var(--azul);
+  color: white;
+  padding: 5px;
 }
-tr, tr a{
-    background-color: var(--verde);
-    color: black;
+
+tr,
+tr a {
+  background-color: var(--verde);
+  color: black;
 }
-tr:nth-child(even), tr:nth-child(even) a{
-    background-color: var(--verde-escuro);
-    color: white;
-  }
+
+tr:nth-child(even),
+tr:nth-child(even) a {
+  background-color: var(--verde-escuro);
+  color: white;
+}
+
 td {
-    padding: 5px;
-    text-align: center;
+  padding: 5px;
+  text-align: center;
 }
