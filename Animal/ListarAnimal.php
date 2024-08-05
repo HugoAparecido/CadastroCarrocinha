@@ -11,47 +11,81 @@
 </head>
 
 <body>
-    <div class="principal flex inverter_column">
-        <button class="botao"><a href="../index.html">Voltar</a></button>
-        <?php
-        include('../includes/conexao.php');
-        $sql = "SELECT ani.id, ani.nome nomeAnimal, ani.especie, ani.raca, ani.data_nascimento, ani.idade, ani.castrado, don.nome nomeDono, don.email FROM animal ani LEFT JOIN pessoa don ON don.id = ani.id_pessoa";
-        // Executa a consulta
-        $result = mysqli_query($con, $sql);
-        ?>
-        <h1>Consulta de Animais</h1>
-        <table>
-            <tr>
-                <th>Código</th>
-                <th>Nome</th>
-                <th>Espécie</th>
-                <th>Raça</th>
-                <th>Data de Nascimeto/Adoção</th>
-                <th>Idade</th>
-                <th>Castrado</th>
-                <th>Dono</th>
-                <th>Alterar</th>
-                <th>Deletar</th>
-            </tr>
-            <?php
-            while ($row = mysqli_fetch_array($result)) {
-                $castrado = $row['castrado'] == 1 ? "Sim" : "Não";
-                echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>";
-                echo "<td>" . $row['nomeAnimal'] . "</td>";
-                echo "<td>" . $row['especie'] . "</td>";
-                echo "<td>" . $row['raca'] . "</td>";
-                echo "<td>" . $row['data_nascimento'] . "</td>";
-                echo "<td>" . $row['idade'] . " anos </td>";
-                echo "<td>" . $castrado . "</td>";
-                echo "<td>" . $row['nomeDono'] . "/" . $row['email'] . "</td>";
-                echo "<td><a href='alteraAnimal.php?id=" . $row['id'] . "'>Alterar</a></td>";
-                echo "<td><a href='deletaAnimal.php?id=" . $row['id'] . "'>Deletar</a></td>";
-                echo "</tr>";
-            }
-            ?>
-        </table>
+    <div class="menu">
+        <a href="#" class="brand"><img src="../img/logo-gato.webp" alt=""></a>
+        <nav>
+            <ul>
+                <li><a href="#">Cidade</a>
+                    <ul>
+                        <li><a href="../Cidade/CadastroCidade.html">Cadastrar</a></li>
+                        <li><a href="../Cidade/ListarCidade.php">Visualizar</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Pessoa</a>
+                    <ul>
+                        <li>
+                            <a href="../Pessoa/CadastroPessoa.php">Cadastrar</a>
+                        </li>
+                        <li>
+                            <a href="../Pessoa/ListarPessoa.php">Visualizar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="">Animal</a>
+                    <ul>
+                        <li>
+                            <a href="../Animal/CadastroAnimal.php">Cadastrar</a>
+                        </li>
+                        <li>
+                            <a href="../Animal/ListarAnimal.php">Visualizar</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
     </div>
+    <section>
+        <div class="principal flex inverter_column">
+            <?php
+            include('../includes/conexao.php');
+            $sql = "SELECT ani.id, ani.nome nomeAnimal, ani.especie, ani.raca, ani.data_nascimento, ani.idade, ani.castrado, don.nome nomeDono, don.email FROM animal ani LEFT JOIN pessoa don ON don.id = ani.id_pessoa";
+            // Executa a consulta
+            $result = mysqli_query($con, $sql);
+            ?>
+            <h1>Consulta de Animais</h1>
+            <table>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Espécie</th>
+                    <th>Raça</th>
+                    <th>Data de Nascimeto/Adoção</th>
+                    <th>Idade</th>
+                    <th>Castrado</th>
+                    <th>Dono</th>
+                    <th>Alterar</th>
+                    <th>Deletar</th>
+                </tr>
+                <?php
+                while ($row = mysqli_fetch_array($result)) {
+                    $castrado = $row['castrado'] == 1 ? "Sim" : "Não";
+                    echo "<tr>";
+                    echo "<td>" . $row['id'] . "</td>";
+                    echo "<td>" . $row['nomeAnimal'] . "</td>";
+                    echo "<td>" . $row['especie'] . "</td>";
+                    echo "<td>" . $row['raca'] . "</td>";
+                    echo "<td>" . $row['data_nascimento'] . "</td>";
+                    echo "<td>" . $row['idade'] . " anos </td>";
+                    echo "<td>" . $castrado . "</td>";
+                    echo "<td>" . $row['nomeDono'] . "/" . $row['email'] . "</td>";
+                    echo "<td><a href='alteraAnimal.php?id=" . $row['id'] . "'>Alterar</a></td>";
+                    echo "<td><a href='deletaAnimal.php?id=" . $row['id'] . "'>Deletar</a></td>";
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+        </div>
+    </section>
 </body>
 
 </html>
