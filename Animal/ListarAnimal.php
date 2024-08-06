@@ -48,7 +48,7 @@
         <div class="principal flex inverter_column">
             <?php
             include('../includes/conexao.php');
-            $sql = "SELECT ani.id, ani.nome nomeAnimal, ani.especie, ani.raca, ani.data_nascimento, ani.castrado, don.nome nomeDono, don.email FROM animal ani LEFT JOIN pessoa don ON don.id = ani.id_pessoa";
+            $sql ="SELECT FLOOR(datediff(curdate(), data_nascimento) / 365) as idade, ani.id, ani.nome nomeAnimal, ani.especie,ani.raca, ani.data_nascimento, ani.castrado, don.nome nomeDono, don.email FROM animal ani LEFT JOIN pessoa don ON don.id = ani.id_pessoa";
             // Executa a consulta
             $result = mysqli_query($con, $sql);
             ?>
@@ -72,18 +72,18 @@
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
                         $castrado = $row['castrado'] == 1 ? "Sim" : "Não";
-                        $dataNascimentoFormatada = date('Y-m-d', strtotime($row['data_nascimento']));
+                        /*$dataNascimentoFormatada = date('Y-m-d', strtotime($row['data_nascimento']));
                         $dataAtual = new DateTime();
                         $dataNascimentoOb = new DateTime($dataNascimentoFormatada);
                         $idadeOb = $dataNascimentoOb->diff(new DateTime(date('Y-m-d')));
-                        $idade = $idadeOb->format('%Y');
+                        $idade = $idadeOb->format('%Y');*/
                         echo "<tr>";
                         echo "<td>" . $row['id'] . "</td>";
                         echo "<td>" . $row['nomeAnimal'] . "</td>";
                         echo "<td>" . $row['especie'] . "</td>";
                         echo "<td>" . $row['raca'] . "</td>";
                         echo "<td>" . $row['data_nascimento'] . "</td>";
-                        echo "<td>" . $idade . " anos </td>";
+                        echo "<td>" . $row['idade'] . " anos </td>";
                         echo "<td>" . $castrado . "</td>";
                         echo "<td>" . $row['nomeDono'] . "/" . $row['email'] . "</td>";
                         echo "<td><a href='alteraAnimal.php?id=" . $row['id'] . "'>Alterar</a></td>";

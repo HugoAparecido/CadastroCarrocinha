@@ -71,7 +71,7 @@ $pessoa = $_POST['pessoa'];
             echo "<p>Idade: $idade</p>";
             echo "<p>castrado: $castrado</p>";
             echo "<p>Id Pessoa: $pessoa";
-            $sql = "UPDATE animal SET nome = '$nome', especie = '$especie', raca = '$raca', data_nascimento = '$dataNascimentoFormatada', idade = $idade, castrado = $castrado, id_pessoa = $pessoa WHERE id = $id";
+            $sql = "UPDATE animal SET nome = '$nome', especie = '$especie', raca = '$raca', data_nascimento = '$dataNascimentoFormatada', castrado = $castrado, id_pessoa = $pessoa WHERE id = $id";
             $result = mysqli_query($con, $sql);
             if ($result)
                 echo "Dados atualizados!";

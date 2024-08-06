@@ -63,13 +63,8 @@
             // INSERT INTO cidade (nome, especie, raca, data_nascimento, castrado, id_pessoa, idade)
             // VALUES ('$nome', '$especie', '$raca', $pessoa, $castrado == "sim" ? 0 : 1, $idade)
             $castrado = $castrado ? 0 : 1;
-            $dataNascimentoFormatada = date('Y-m-d', strtotime($dataNascimento));
-            $dataAtual = new DateTime();
-            $dataNascimentoOb = new DateTime($dataNascimentoFormatada);
-            $idadeOb = $dataNascimentoOb->diff(new DateTime(date('Y-m-d')));
-            $idade = $idadeOb->format('%Y');
-            $sql = "INSERT INTO animal (nome, especie, raca, data_nascimento, castrado, id_pessoa, idade)";
-            $sql .= " VALUES('" . $nome . "', '" . $especie . "', '" . $raca . "', '" . $dataNascimentoFormatada . "', $castrado, $pessoa, $idade)";
+            $sql = "INSERT INTO animal (nome, especie, raca, data_nascimento, castrado, id_pessoa)";
+            $sql .= " VALUES('" . $nome . "', '" . $especie . "', '" . $raca . "', '" . $dataNascimentoFormatada . "', $castrado, $pessoa)";
             echo $sql;
             // Executa comando no banco de dados
             $result =  mysqli_query($con, $sql);
