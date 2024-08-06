@@ -106,3 +106,7 @@ select.box-inline {
 .box-cidade button[type="submit"]:hover {
     background: #ef296c;
 }
+
+.inline {
+    display: flex;
+}

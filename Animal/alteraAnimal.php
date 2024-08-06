@@ -13,6 +13,7 @@ $row = mysqli_fetch_array($result);
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/cadastro.css" />
     <title>Altera Animal</title>
 </head>
 
@@ -50,10 +51,10 @@ $row = mysqli_fetch_array($result);
             </ul>
         </nav>
     </div>
-    <div class="principal flex inverter_column">
-        <form action="AlteraAnimalExe.php" method="post">
-            <fieldset>
-                <legend>Alteração de Animal</legend>
+    <section>
+        <div class="principal box">
+            <h2>Alteração de Animal</h2>
+            <form action="AlteraAnimalExe.php" method="post">
                 <div>
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" value="<?php echo $row['nome'] ?>" />
@@ -70,7 +71,7 @@ $row = mysqli_fetch_array($result);
                     <label for="data_nascimento">Data de Nascimento ou Adoção</label>
                     <input type="date" name="data_nascimento" id="data_nascimento" value="<?php echo $row['data_nascimento'] ?>" />
                 </div>
-                <div>
+                <div class="inline">
                     <label>Cadastrado:</label>
                     <input type="radio" name="castrado" id="castradoSim" value="sim" <?php echo $row['castrado'] == 1 ? "checked" : "" ?> /><label id="castradoSim">Sim</label>
                     <input type="radio" name="castrado" id="castradoNao" value="nao" <?php echo $row['castrado'] == 0 ? "checked" : "" ?> /><label id="castradoNao">Não</label>
@@ -89,12 +90,11 @@ $row = mysqli_fetch_array($result);
                 </div>
                 <input type="hidden" name='id' value='<?php echo $row['id'] ?>'>
                 <div>
-                    <button class="botao_submit" type="submit">Cadastrar</button>
+                    <button class="botao_submit" type="submit">Alterar</button>
                 </div>
-            </fieldset>
-        </form>
-        <button class="botao"><a href="./ListarAnimal.php">Voltar</a></button>
-    </div>
+            </form>
+        </div>
+    </section>
 </body>
 
 </html>

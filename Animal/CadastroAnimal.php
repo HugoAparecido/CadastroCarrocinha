@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/cadastro.css" />
     <title>Cadastro Animal</title>
 </head>
 
@@ -43,10 +44,10 @@
             </ul>
         </nav>
     </div>
-    <div class="principal flex inverter_column">
-        <form action="./CadastroAnimalExe.php" method="post">
-            <fieldset>
-                <legend>Cadastro de Animal</legend>
+    <section>
+        <div class="principal box">
+            <h2>Cadastro de Animal</h2>
+            <form action="./CadastroAnimalExe.php" method="post">
                 <div>
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" />
@@ -63,10 +64,10 @@
                     <label for="data_nascimento">Data de Nascimento ou Adoção</label>
                     <input type="date" name="data_nascimento" id="data_nascimento" />
                 </div>
-                <div>
-                    <label>Cadastrado:</label>
-                    <input type="radio" name="castrado" id="castradoSim" value="sim" /><label id="castradoSim">Sim</label>
-                    <input type="radio" name="castrado" id="castradoNao" value="nao" /><label id="castradoNao">Não</label>
+                <div class="inline">
+                    <label>Castrado:</label>
+                    <input type="radio" name="castrado" id="castradoSim" value="sim" class="inline" /><label id="castradoSim">Sim</label>
+                    <input type="radio" name="castrado" id="castradoNao" value="nao" class="inline" /><label id="castradoNao">Não</label>
                 </div>
                 <div><label for="pessoa">Pessoa</label>
                     <select name="pessoa" id="pessoa">
@@ -80,13 +81,10 @@
                         ?>
                     </select>
                 </div>
-                <div>
-                    <button class="botao_submit" type="submit">Cadastrar</button>
-                </div>
-            </fieldset>
-        </form>
-        <button class="botao"><a href="../index.html">Voltar</a></button>
-    </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </section>
 </body>
 
 </html>
