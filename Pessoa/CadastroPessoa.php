@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/cadastro.css" />
     <title>Cadastrar Pessoa</title>
 </head>
 
@@ -43,10 +44,10 @@
             </ul>
         </nav>
     </div>
-    <div class="principal flex inverter_column">
-        <form action="./CadastroPessoaExe.php" method="post">
-            <fieldset>
-                <legend>Cadastro de Pessoa</legend>
+    <section>
+        <div class="principal box">
+            <h2>Cadastro de Pessoa</h2>
+            <form action="./CadastroPessoaExe.php" method="post">
                 <div>
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" />
@@ -67,7 +68,8 @@
                     <label for="cep">CEP</label>
                     <input type="text" name="cep" id="cep" />
                 </div>
-                <div><label for="cidade">Cidade</label>
+                <div>
+                    <label for="cep">Cidade</label>
                     <select name="cidade" id="cidade">
                         <?php
                         include('../includes/conexao.php');
@@ -77,15 +79,13 @@
                             echo "<option value='" . $row['id'] . "'>" . $row['nome'] . "/" . $row['estado'] . "</option>";
                         }
                         ?>
+                        <label for="cidade">Cidade</label>
                     </select>
                 </div>
-                <div>
-                    <button class="botao_submit" type="submit">Cadastrar</button>
-                </div>
-            </fieldset>
-        </form>
-        <button class="botao"><a href="../index.html">Voltar</a></button>
-    </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </section>
 </body>
 
 </html>

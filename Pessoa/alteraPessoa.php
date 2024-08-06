@@ -13,6 +13,7 @@ $rowPessoa = mysqli_fetch_array($result);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/cadastro.css" />
   <title>Alterar Pessoa</title>
 </head>
 
@@ -50,10 +51,10 @@ $rowPessoa = mysqli_fetch_array($result);
       </ul>
     </nav>
   </div>
-  <div class="principal flex inverter_column">
-    <form action="./AlteraPessoaExe.php" method="post">
-      <fieldset>
-        <legend>Cadastro de Pessoa</legend>
+  <section>
+    <div class="principal box">
+      <h2>Atualização de Pessoa</h2>
+      <form action="./AlteraPessoaExe.php" method="post">
         <div>
           <label for="nome">Nome</label>
           <input type="text" name="nome" id="nome" value="<?= $rowPessoa['nome'] ?>" />
@@ -86,13 +87,10 @@ $rowPessoa = mysqli_fetch_array($result);
             ?>
           </select>
         </div>
-        <div>
-          <button class="botao_submit" type="submit">Alterar</button>
-        </div>
-      </fieldset>
-    </form>
-    <button class="botao"><a href="../index.html">Voltar</a></button>
-  </div>
+        <button class="botao_submit" type="submit">Alterar</button>
+      </form>
+    </div>
+  </section>
 </body>
 
 </html>
