@@ -63,6 +63,7 @@
             // INSERT INTO cidade (nome, especie, raca, data_nascimento, castrado, id_pessoa, idade)
             // VALUES ('$nome', '$especie', '$raca', $pessoa, $castrado == "sim" ? 0 : 1, $idade)
             $castrado = $castrado ? 0 : 1;
+            $dataNascimentoFormatada = date('Y-m-d', strtotime($dataNascimento));
             $sql = "INSERT INTO animal (nome, especie, raca, data_nascimento, castrado, id_pessoa)";
             $sql .= " VALUES('" . $nome . "', '" . $especie . "', '" . $raca . "', '" . $dataNascimentoFormatada . "', $castrado, $pessoa)";
             echo $sql;
