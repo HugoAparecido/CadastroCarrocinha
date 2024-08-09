@@ -21,7 +21,7 @@
                         <li><a href="../Cidade/ListarCidade.php">Visualizar</a></li>
                     </ul>
                 </li>
-                <li><a href="">Pessoa</a>
+                <li><a href="#">Pessoa</a>
                     <ul>
                         <li>
                             <a href="../Pessoa/CadastroPessoa.php">Cadastrar</a>
@@ -31,7 +31,7 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="">Animal</a>
+                <li><a href="#">Animal</a>
                     <ul>
                         <li>
                             <a href="../Animal/CadastroAnimal.php">Cadastrar</a>
@@ -52,7 +52,7 @@
             $especie = $_POST['especie'];
             $raca = $_POST['raca'];
             $dataNascimento = $_POST['data_nascimento'];
-            $castrado = $_POST['castrado'] == "Sim" ? true : false;
+            $castrado = intval($_POST['castrado']);
             $pessoa = $_POST['pessoa'];
             echo "<h1>Dados da cidade</h1>";
             echo "Nome: $nome</br>";
@@ -62,7 +62,6 @@
             echo "Castrado: " . ($castrado ? "Sim" : "Não") . "</br>";
             // INSERT INTO cidade (nome, especie, raca, data_nascimento, castrado, id_pessoa, idade)
             // VALUES ('$nome', '$especie', '$raca', $pessoa, $castrado == "sim" ? 0 : 1, $idade)
-            $castrado = $castrado ? 0 : 1;
             $dataNascimentoFormatada = date('Y-m-d', strtotime($dataNascimento));
             $sql = "INSERT INTO animal (nome, especie, raca, data_nascimento, castrado, id_pessoa)";
             $sql .= " VALUES('" . $nome . "', '" . $especie . "', '" . $raca . "', '" . $dataNascimentoFormatada . "', $castrado, $pessoa)";

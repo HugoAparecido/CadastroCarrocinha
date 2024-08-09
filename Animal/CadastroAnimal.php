@@ -66,8 +66,8 @@
                 </div>
                 <div class="inline">
                     <label>Castrado:</label>
-                    <input type="radio" name="castrado" id="castradoSim" value="sim" class="inline" /><label id="castradoSim">Sim</label>
-                    <input type="radio" name="castrado" id="castradoNao" value="nao" class="inline" /><label id="castradoNao">Não</label>
+                    <input type="radio" name="castrado" id="castradoSim" value="1" class="inline" /><label id="castradoSim">Sim</label>
+                    <input type="radio" name="castrado" id="castradoNao" value="0" class="inline" /><label id="castradoNao">Não</label>
                 </div>
                 <div><label for="pessoa">Pessoa</label>
                     <select name="pessoa" id="pessoa">
