@@ -5,7 +5,7 @@ $nome = $_POST['nome'];
 $especie = $_POST['especie'];
 $raca = $_POST['raca'];
 $dataNascimento = $_POST['data_nascimento'];
-$castrado = $_POST['castrado'] == "sim" ? 1 : 0;
+$castrado = intval($_POST['castrado']);
 $pessoa = $_POST['pessoa'];
 ?>
 <!DOCTYPE html>
@@ -69,7 +69,7 @@ $pessoa = $_POST['pessoa'];
             echo "<p>Raça: $raca</p>";
             echo "<p>Data Nascimento: $dataNascimento</p>";
             echo "<p>Idade: $idade</p>";
-            echo "<p>castrado: $castrado</p>";
+            echo "<p>castrado: ".($castrado? "Sim" : "Não")."</p>";
             echo "<p>Id Pessoa: $pessoa";
             $sql = "UPDATE animal SET nome = '$nome', especie = '$especie', raca = '$raca', data_nascimento = '$dataNascimentoFormatada', castrado = $castrado, id_pessoa = $pessoa WHERE id = $id";
             $result = mysqli_query($con, $sql);

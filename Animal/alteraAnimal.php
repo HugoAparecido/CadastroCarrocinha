@@ -73,8 +73,8 @@ $row = mysqli_fetch_array($result);
                 </div>
                 <div class="inline">
                     <label>Cadastrado:</label>
-                    <input type="radio" name="castrado" id="castradoSim" value="sim" <?php echo $row['castrado'] == 1 ? "checked" : "" ?> /><label id="castradoSim">Sim</label>
-                    <input type="radio" name="castrado" id="castradoNao" value="nao" <?php echo $row['castrado'] == 0 ? "checked" : "" ?> /><label id="castradoNao">Não</label>
+                    <input type="radio" name="castrado" id="castradoSim" value="1" <?php echo $row['castrado'] == 1 ? "checked" : "" ?> /><label id="castradoSim">Sim</label>
+                    <input type="radio" name="castrado" id="castradoNao" value="0" <?php echo $row['castrado'] == 0 ? "checked" : "" ?> /><label id="castradoNao">Não</label>
                 </div>
                 <div><label for="pessoa">Pessoa</label>
                     <select name="pessoa" id="pessoa">
