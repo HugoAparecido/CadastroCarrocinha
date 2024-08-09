@@ -56,7 +56,7 @@ $pessoa = $_POST['pessoa'];
     </div>
     <section>
         <div class="principal">
-            <h1>Alteração de cidade</h1>
+            <h1>Alteração de Animal</h1>
             <?php
             $dataNascimentoFormatada = date('Y-m-d', strtotime($dataNascimento));
             $dataAtual = new DateTime();

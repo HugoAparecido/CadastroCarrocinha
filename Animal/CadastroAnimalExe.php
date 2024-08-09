@@ -50,11 +50,11 @@
             include('../includes/conexao.php');
             // UPLOAD FOTO
             $nome_foto = "";
-            if (file_exists($_FILES['foto']['name'])) {
+            if (file_exists($_FILES['foto']['tmp_name'])) {
                 $pasta_destino = 'fotos/';
-                $extensao = strtolower($_FILES['foto']['name'], -4);
+                $extensao = strtolower(substr($_FILES['foto']['name'], -4));
                 $nome_foto = $pasta_destino . date('Ymd-His') . $extensao;
-                move_uploaded_file($_FILES['foto']['name'], $nome_foto);
+                move_uploaded_file($_FILES['foto']['tmp_name'], $nome_foto);
             }
             // FIM UPLOAD
             $nome = $_POST['nome'];
@@ -63,13 +63,13 @@
             $dataNascimento = $_POST['data_nascimento'];
             $castrado = intval($_POST['castrado']);
             $pessoa = $_POST['pessoa'];
-            echo "<h1>Dados da cidade</h1>";
+            echo "<h1>Dados do Annimal</h1>";
             echo "Nome: $nome</br>";
             echo "Especie: $especie</br>";
             echo "Raça: $raca</br>";
             echo "Data de Nascimento: $dataNascimento</br>";
             echo "Castrado: " . ($castrado ? "Sim" : "Não") . "</br>";
-            // INSERT INTO cidade (nome, especie, raca, data_nascimento, castrado, id_pessoa, idade)
+            // INSERT INTO animal (nome, especie, raca, data_nascimento, castrado, id_pessoa, idade)
             // VALUES ('$nome', '$especie', '$raca', $pessoa, $castrado == "sim" ? 0 : 1, $idade)
             $dataNascimentoFormatada = date('Y-m-d', strtotime($dataNascimento));
             $sql = "INSERT INTO animal (nome, especie, raca, data_nascimento, castrado, id_pessoa)";
