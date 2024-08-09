@@ -49,6 +49,7 @@
             <?php
             include('../includes/conexao.php');
             // UPLOAD FOTO
+            $nome_foto = "";
             if (file_exists($_FILES['foto']['name'])) {
                 $pasta_destino = 'fotos/';
                 $extensao = strtolower($_FILES['foto']['name'], -4);
