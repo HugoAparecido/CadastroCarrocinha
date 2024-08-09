@@ -72,8 +72,8 @@
             // INSERT INTO animal (nome, especie, raca, data_nascimento, castrado, id_pessoa, idade)
             // VALUES ('$nome', '$especie', '$raca', $pessoa, $castrado == "sim" ? 0 : 1, $idade)
             $dataNascimentoFormatada = date('Y-m-d', strtotime($dataNascimento));
-            $sql = "INSERT INTO animal (nome, especie, raca, data_nascimento, castrado, id_pessoa)";
-            $sql .= " VALUES('" . $nome . "', '" . $especie . "', '" . $raca . "', '" . $dataNascimentoFormatada . "', $castrado, $pessoa)";
+            $sql = "INSERT INTO animal (nome, especie, raca, data_nascimento, castrado, id_pessoa, foto)";
+            $sql .= " VALUES('" . $nome . "', '" . $especie . "', '" . $raca . "', '" . $dataNascimentoFormatada . "', $castrado, $pessoa, $nome_foto)";
             echo $sql;
             // Executa comando no banco de dados
             $result =  mysqli_query($con, $sql);
