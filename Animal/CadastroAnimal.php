@@ -47,7 +47,7 @@
     <section>
         <div class="principal box">
             <h2>Cadastro de Animal</h2>
-            <form action="./CadastroAnimalExe.php" method="post">
+            <form action="./CadastroAnimalExe.php" method="post" enctype="">
                 <div>
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" />
