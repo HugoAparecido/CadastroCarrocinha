@@ -3,6 +3,7 @@ body {
   padding: 0;
   background: url(../img/cao-e-gato.jpg);
   background-size: cover;
+  background-attachment: fixed;
   font-family: sans-serif;
 }
 
