@@ -21,7 +21,7 @@
                         <li><a href="../Cidade/ListarCidade.php">Visualizar</a></li>
                     </ul>
                 </li>
-                <li><a href="">Pessoa</a>
+                <li><a href="#">Pessoa</a>
                     <ul>
                         <li>
                             <a href="../Pessoa/CadastroPessoa.php">Cadastrar</a>
@@ -31,7 +31,7 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="">Animal</a>
+                <li><a href="#">Animal</a>
                     <ul>
                         <li>
                             <a href="../Animal/CadastroAnimal.php">Cadastrar</a>
@@ -46,7 +46,7 @@
     </div>
     <section>
         <div class="principal">
-            <h1>Deletar cidade</h1>
+            <h1>Deletar Animal</h1>
             <?php
             include('../includes/conexao.php');
             $id = $_GET['id'];
