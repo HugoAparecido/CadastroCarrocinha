@@ -63,7 +63,7 @@
             $dataNascimento = $_POST['data_nascimento'];
             $castrado = intval($_POST['castrado']);
             $pessoa = $_POST['pessoa'];
-            echo "<h1>Dados do Annimal</h1>";
+            echo "<h1>Dados do Animal</h1>";
             echo "Nome: $nome</br>";
             echo "Especie: $especie</br>";
             echo "Raça: $raca</br>";
@@ -73,7 +73,7 @@
             // VALUES ('$nome', '$especie', '$raca', $pessoa, $castrado == "sim" ? 0 : 1, $idade)
             $dataNascimentoFormatada = date('Y-m-d', strtotime($dataNascimento));
             $sql = "INSERT INTO animal (nome, especie, raca, data_nascimento, castrado, id_pessoa, foto)";
-            $sql .= " VALUES('" . $nome . "', '" . $especie . "', '" . $raca . "', '" . $dataNascimentoFormatada . "', $castrado, $pessoa, $nome_foto)";
+            $sql .= " VALUES('" . $nome . "', '" . $especie . "', '" . $raca . "', '" . $dataNascimentoFormatada . "', $castrado, $pessoa, '$nome_foto')";
             echo $sql;
             // Executa comando no banco de dados
             $result =  mysqli_query($con, $sql);

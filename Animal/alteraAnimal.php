@@ -28,7 +28,7 @@ $row = mysqli_fetch_array($result);
                         <li><a href="../Cidade/ListarCidade.php">Visualizar</a></li>
                     </ul>
                 </li>
-                <li><a href="">Pessoa</a>
+                <li><a href="#">Pessoa</a>
                     <ul>
                         <li>
                             <a href="../Pessoa/CadastroPessoa.php">Cadastrar</a>
@@ -38,7 +38,7 @@ $row = mysqli_fetch_array($result);
                         </li>
                     </ul>
                 </li>
-                <li><a href="">Animal</a>
+                <li><a href="#">Animal</a>
                     <ul>
                         <li>
                             <a href="../Animal/CadastroAnimal.php">Cadastrar</a>
@@ -72,7 +72,7 @@ $row = mysqli_fetch_array($result);
                     <input type="date" name="data_nascimento" id="data_nascimento" value="<?php echo $row['data_nascimento'] ?>" />
                 </div>
                 <div class="inline">
-                    <label>Cadastrado:</label>
+                    <label>Castrado:</label>
                     <input type="radio" name="castrado" id="castradoSim" value="1" <?php echo $row['castrado'] == 1 ? "checked" : "" ?> /><label id="castradoSim">Sim</label>
                     <input type="radio" name="castrado" id="castradoNao" value="0" <?php echo $row['castrado'] == 0 ? "checked" : "" ?> /><label id="castradoNao">Não</label>
                 </div>

@@ -28,7 +28,7 @@ $rowPessoa = mysqli_fetch_array($result);
             <li><a href="../Cidade/ListarCidade.php">Visualizar</a></li>
           </ul>
         </li>
-        <li><a href="">Pessoa</a>
+        <li><a href="#">Pessoa</a>
           <ul>
             <li>
               <a href="../Pessoa/CadastroPessoa.php">Cadastrar</a>
@@ -38,7 +38,7 @@ $rowPessoa = mysqli_fetch_array($result);
             </li>
           </ul>
         </li>
-        <li><a href="">Animal</a>
+        <li><a href="#">Animal</a>
           <ul>
             <li>
               <a href="../Animal/CadastroAnimal.php">Cadastrar</a>
