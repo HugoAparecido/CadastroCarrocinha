@@ -13,10 +13,7 @@ section {
 
 
 .box {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     width: 400px;
     background: #fff;
     padding: 40px;
